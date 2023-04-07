@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.senac.model.SituacaoAprendizagem;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,8 +45,8 @@ public class ObjetoAprendizagem implements Serializable{
 	@ManyToMany
 	@JoinTable(
 		name = "situacao_objeto_aprendizagem",
-		joinColumns = { @JoinColumn(name = "objeto_aprendizagem_id")},
-		inverseJoinColumns = { @JoinColumn(name = "situacao_aprendizagem_id")} 
+		joinColumns = { @JoinColumn(name = "objeto_aprendizagem_id", referencedColumnName = "objeto_aprendizagem_id")},
+		inverseJoinColumns = { @JoinColumn(name = "situacao_aprendizagem_id", referencedColumnName = "situacao_aprendizagem_id")} 
 	)
 	private List<SituacaoAprendizagem> aprendizagens;
 	
