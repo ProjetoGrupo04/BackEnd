@@ -1,5 +1,9 @@
 package com.senac.api.request;
 
+import java.util.List;
+
+import com.senac.api.entity.SituacaoAprendizagem;
+
 import jakarta.validation.constraints.NotNull;
 
 public class ObjetoAprendizagemRequest{
@@ -15,6 +19,8 @@ public class ObjetoAprendizagemRequest{
 	private Long grauDificuldadeId;
 	@NotNull(message = "O campo usuario deve ser preenchido!!")
 	private Long usuarioId;
+	@NotNull(message = "O campo usuario deve ser preenchido!!")
+	private List<SituacaoAprendizagem> aprendizagens;
 	
 	public Long getId() {
 		return id;
@@ -52,5 +58,12 @@ public class ObjetoAprendizagemRequest{
 	public void setUsuarioId(Long usuarioId) {
 		this.usuarioId = usuarioId;
 	}
+	public List<SituacaoAprendizagem> getAprendizagens() {
+		return aprendizagens;
+	}
+	public void setAprendizagens(List<SituacaoAprendizagem> aprendizagens) {
+		this.aprendizagens = aprendizagens;
+	}
+	
 	
 }

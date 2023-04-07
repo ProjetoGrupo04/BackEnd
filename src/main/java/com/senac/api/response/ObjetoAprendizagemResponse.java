@@ -1,6 +1,9 @@
 package com.senac.api.response;
 
+import java.util.List;
+
 import com.senac.api.entity.GrauDificuldade;
+import com.senac.api.entity.SituacaoAprendizagem;
 import com.senac.api.entity.Usuario;
 
 public class ObjetoAprendizagemResponse{
@@ -11,6 +14,7 @@ public class ObjetoAprendizagemResponse{
 	private Boolean status;
 	private GrauDificuldade grauDificuldadeId;
 	private Usuario usuarioId;
+	private List<SituacaoAprendizagem> aprendizagens;
 	
 	public Long getId() {
 		return id;
@@ -47,6 +51,12 @@ public class ObjetoAprendizagemResponse{
 	}
 	public void setUsuarioId(Usuario usuarioId) {
 		this.usuarioId = usuarioId;
+	}
+	public List<SituacaoAprendizagem> getAprendizagens() {
+		return aprendizagens;
+	}
+	public void setAprendizagens(List<SituacaoAprendizagem> aprendizagens) {
+		this.aprendizagens = aprendizagens;
 	}
 	
 }

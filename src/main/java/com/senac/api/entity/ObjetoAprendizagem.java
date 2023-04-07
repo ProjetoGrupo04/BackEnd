@@ -85,5 +85,12 @@ public class ObjetoAprendizagem implements Serializable{
 	public void setUsuarioId(Usuario usuarioId) {
 		this.usuarioId = usuarioId;
 	}
+	public List<SituacaoAprendizagem> getAprendizagens() {
+		return aprendizagens;
+	}
+	public void setAprendizagens(List<SituacaoAprendizagem> aprendizagens) {
+		this.aprendizagens = aprendizagens;
+	}
+	
 	
 }
