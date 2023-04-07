@@ -24,11 +24,13 @@ public class ObjetoAprendizagemController {
 	private ObjetoAprendizagemService objetoAprendizagemService;
 	
 	@PostMapping
-	public ResponseEntity<ObjetoAprendizagemResponse>  adicionar(@Valid @RequestBody ObjetoAprendizagemRequest objReq){
+	public ResponseEntity<ObjetoAprendizagemResponse> adicionar(@Valid @RequestBody ObjetoAprendizagemRequest objReq){
 		ModelMapper mapper = new ModelMapper();
 		ObjetoAprendizagem obj = mapper.map(objReq, ObjetoAprendizagem.class);
 		obj = objetoAprendizagemService.adicionar(obj);
-		return ResponseEntity<>(mapper.map(obj, ObjetoAprendizagemResponse.class), HttpStatus.CREATED);
-		//return ResponseEntity<>(mapper.map(obj, ObjetoAprendizagemResponse.class), HttpStatus.CREATED);
+		return new ResponseEntity<ObjetoAprendizagemResponse>(mapper.map(obj, ObjetoAprendizagemResponse.class), HttpStatus.CREATED);
 	}
+	
+	
+	
 }
