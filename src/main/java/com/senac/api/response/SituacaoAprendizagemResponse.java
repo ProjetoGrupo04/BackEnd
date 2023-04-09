@@ -5,6 +5,7 @@ import java.util.List;
 import com.senac.api.entity.Badge;
 import com.senac.api.entity.CopetenciaIndicador;
 import com.senac.api.entity.GrauDificuldade;
+import com.senac.api.entity.ObjetoAprendizagem;
 import com.senac.api.entity.PlanejamentoUc;
 
 public class SituacaoAprendizagemResponse{
@@ -18,6 +19,7 @@ public class SituacaoAprendizagemResponse{
 	private GrauDificuldade grauDificuldadeId;
 	private Badge badgeId;
 	private List<CopetenciaIndicador> indicadores;
+	private List<ObjetoAprendizagem> objetos;
 	
 	public Long getId() {
 		return id;
@@ -72,6 +74,12 @@ public class SituacaoAprendizagemResponse{
 	}
 	public void setIndicadores(List<CopetenciaIndicador> indicadores) {
 		this.indicadores = indicadores;
+	}
+	public List<ObjetoAprendizagem> getObjetos() {
+		return objetos;
+	}
+	public void setObjetos(List<ObjetoAprendizagem> objetos) {
+		this.objetos = objetos;
 	}
 	
 }

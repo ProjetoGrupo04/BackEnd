@@ -3,6 +3,8 @@ package com.senac.api.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -30,7 +33,7 @@ public class SituacaoAprendizagem implements Serializable{
 	@Column(name = "situacao_aprendizagem_descricao")
 	private String descricao;
 	@Column(name = "situacao_aprendizagem_ordem")
-	private Boolean ordem;
+	private Integer ordem;
 	@Column(name = "situacao_aprendizagem_status")
 	private Boolean status;
 	@ManyToOne
@@ -42,9 +45,9 @@ public class SituacaoAprendizagem implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "badge_id", referencedColumnName = "badge_id")
 	private Badge badgeId;
-	//@OneToMany(mappedBy="situacao_aprendizagem_id")
-	//@JsonIgnore
-	//private List<Atividade> atividades;
+	@JsonIgnore
+	@OneToMany(mappedBy = "situacaoAprendizagemId")
+	private List<Atividade> atividades;
 	@ManyToMany
 	@JoinTable(
 		name = "indicador_situacao_aprendizagens",
@@ -53,6 +56,9 @@ public class SituacaoAprendizagem implements Serializable{
 	)
 	@Column(name = "indicadores")
 	private List<CopetenciaIndicador> indicadores;
+	@JsonIgnore
+	@ManyToMany(mappedBy = "aprendizagens")
+	private List<ObjetoAprendizagem> objetos;
 	
 	public Long getId() {
 		return id;
@@ -72,10 +78,10 @@ public class SituacaoAprendizagem implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Boolean getOrdem() {
+	public Integer getOrdem() {
 		return ordem;
 	}
-	public void setOrdem(Boolean ordem) {
+	public void setOrdem(Integer ordem) {
 		this.ordem = ordem;
 	}
 	public Boolean getStatus() {
@@ -108,7 +114,18 @@ public class SituacaoAprendizagem implements Serializable{
 	public void setIndicadores(List<CopetenciaIndicador> indicadores) {
 		this.indicadores = indicadores;
 	}
-	
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+	public void setAtividades(List<Atividade> atividades) {
+		this.atividades = atividades;
+	}
+	public List<ObjetoAprendizagem> getObjetos() {
+		return objetos;
+	}
+	public void setObjetos(List<ObjetoAprendizagem> objetos) {
+		this.objetos = objetos;
+	}
 	
 
 }

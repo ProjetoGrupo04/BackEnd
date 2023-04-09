@@ -31,8 +31,10 @@ public class ObjetoAprendizagem implements Serializable{
 	private String descricao;
 	@JsonIgnore
 	@Lob
-	@Column(name = "objeto_aprendizagem_blob" , columnDefinition="longblob")
+	@Column(name = "objeto_aprendizagem_blob" /*, columnDefinition = "LONGBLOB"*/)
 	private byte[] blob;
+	@Column(name = "objeto_aprendizagem_tipo")
+	private String tipo;
 	@Column(name = "objeto_aprendizagem_status")
 	private Boolean status;
 	@OneToOne
@@ -67,6 +69,12 @@ public class ObjetoAprendizagem implements Serializable{
 	public void setBlob(byte[] blob) {
 		this.blob = blob;
 	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 	public Boolean getStatus() {
 		return status;
 	}
@@ -91,6 +99,5 @@ public class ObjetoAprendizagem implements Serializable{
 	public void setAprendizagens(List<SituacaoAprendizagem> aprendizagens) {
 		this.aprendizagens = aprendizagens;
 	}
-	
 	
 }

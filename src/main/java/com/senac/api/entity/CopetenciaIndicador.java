@@ -28,7 +28,7 @@ public class CopetenciaIndicador implements Serializable{
 	@Column(name = "copetencia_indicador_descricao")
 	private String descricao;
 	@Column(name = "copetencia_indicador_status")
-	private Boolean status;
+	private Integer status;
 	@ManyToOne
 	@JoinColumn(name = "copetencia_id", referencedColumnName = "copetencia_id")
 	private Copetencia copetenciaId;
@@ -48,10 +48,10 @@ public class CopetenciaIndicador implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Boolean getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
-	public void setStatus(Boolean status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	public Copetencia getCopetenciaId() {
@@ -66,7 +66,6 @@ public class CopetenciaIndicador implements Serializable{
 	public void setSituacoesAprendizagens(List<SituacaoAprendizagem> situacoesAprendizagens) {
 		this.situacoesAprendizagens = situacoesAprendizagens;
 	}
-	
 	
 
 }
